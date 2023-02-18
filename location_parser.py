@@ -6,7 +6,7 @@ import pandas as pd
 import random 
 import pokebot_parser
 
-data = pd.read_csv("Pokemon_data.csv")
+data = pd.read_csv("csv_files/Pokemon_data.csv")
 def get_name_from_dex_number(pokemon_id):
     pokemon_df = pd.DataFrame(data)
     pokemon_df.set_index("pokedex_number", inplace = True)
@@ -215,7 +215,7 @@ def generate_locations_csv():
         sun_location, moon_location, ultra_sun_location, ultra_moon_location,
         sword_location, shield_location, brilliant_diamond_location, shining_pearl_location, pla_location])
 
-        with open('locations_temp.csv', 'w', encoding="utf-8", newline='') as f_output:
+        with open('csv_files/locations_temp.csv', 'w', encoding="utf-8", newline='') as f_output:
             csv_output = csv.writer(f_output)
             csv_output.writerows(rows)
 generate_locations_csv()

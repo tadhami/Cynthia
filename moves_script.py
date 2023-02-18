@@ -11,7 +11,7 @@ import numpy as np
 
 
 def get_moves_list():
-    pokemon_data = pd.read_csv("pokemon_moves.csv")
+    pokemon_data = pd.read_csv("csv_files/pokemon_moves.csv")
     move_df = pd.DataFrame(pokemon_data)
     move_names_lst = move_df['Name']
     return move_names_lst
@@ -123,7 +123,7 @@ def format_pokemondb_move_urls(move_name):
 
 def get_move_info_csv(query, message):
     move_name = move_name_extractor(message, 1)
-    data = pd.read_csv("pokemon_moves.csv")
+    data = pd.read_csv("csv_files/pokemon_moves.csv")
     df = pd.DataFrame(data)
     df.set_index('Name', inplace=True)
     out = df.loc[move_name, query]

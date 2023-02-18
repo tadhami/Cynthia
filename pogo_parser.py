@@ -6,7 +6,6 @@ from dateutil import parser
 from dateutil.relativedelta import relativedelta
 import pokebot_parser
 import difflib
-# added a comment
 
 seasons_url = 'https://www.serebii.net/pokemongo/seasons.shtml'
 event_url = 'https://www.serebii.net/pokemongo/events.shtml'

@@ -12,7 +12,7 @@ def populate_pokemon(self, name):
     dex_num = pokebot_parser.dex_num_extractor(name)
     self.dex_num = dex_num 
 
-    pokemon_file = pd.read_csv("Pokemon_data.csv")
+    pokemon_file = pd.read_csv("csv_files/Pokemon_data.csv")
     pokemon_df = pd.DataFrame(pokemon_file)
     pokemon_df.set_index("name", inplace = True)
 

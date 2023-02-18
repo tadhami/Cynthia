@@ -10,8 +10,8 @@ from PIL import Image
 from io import BytesIO
 
 
-data = pd.read_csv("Pokemon_data.csv")
-type_data = pd.read_csv("types_chart.csv")
+data = pd.read_csv("csv_files/Pokemon_data.csv")
+type_data = pd.read_csv("csv_files/types_chart.csv")
 type_df = pd.DataFrame(type_data)
 type_df.set_index('Attacker/Defender', inplace = True)
 types = type_df.columns
@@ -69,7 +69,7 @@ def get_item_output(message, game_tuple):
         return final_extracted_item, False
 
 def item_final_output(item, game):
-    item_data = pd.read_csv("item_locations.csv")
+    item_data = pd.read_csv("csv_files/item_locations.csv")
     item_df = pd.DataFrame(item_data)
     item_df.set_index('item_name', inplace=True)
     my_item = item_df.loc[item, game]
@@ -164,7 +164,7 @@ def get_gen_from_game(game):
 
 
 def type_extractor(pokemon_name, get_type):
-    pokemon_data = pd.read_csv("Pokemon_data.csv")
+    pokemon_data = pd.read_csv("csv_files/Pokemon_data.csv")
     pokemon_df = pd.DataFrame(pokemon_data)
     pokemon_df = pokemon_df.drop(["pokedex_number"], axis = 1)
     pokemon_df.set_index("name", inplace = True)
@@ -293,7 +293,7 @@ def region_extractor(message):
 
 def obtain_pokemon_output(pokemon_name, game):
     dex_num = dex_num_extractor(pokemon_name)
-    location_data = pd.read_csv('Pokemon_locations.csv')
+    location_data = pd.read_csv('csv_files/Pokemon_locations.csv')
     location_df = pd.DataFrame(location_data)
     location_df.set_index('pokemon_id', inplace = True)
     pokemon_location = location_df.loc[dex_num, game]
@@ -302,14 +302,14 @@ def obtain_pokemon_output(pokemon_name, game):
     return pokemon_location
 
 def obtain_evolution_output(pokemon_name):
-    evolution_data = pd.read_csv("evolution_criteria.csv")
+    evolution_data = pd.read_csv("csv_files/evolution_criteria.csv")
     evolution_df = pd.DataFrame(evolution_data)
     evolution_df.set_index('pokemon_name', inplace = True)
     evolution_criteria = evolution_df.loc[pokemon_name, 'evolution_criteria']
     return evolution_criteria 
 
 def get_move_effect(move):
-    move_data = pd.read_csv("pokemon_moves.csv")
+    move_data = pd.read_csv("csv_files/pokemon_moves.csv")
     move_df = pd.DataFrame(move_data)
     move_df.set_index('Name', inplace = True)
     move_effect = move_df.loc[move, 'Effect']

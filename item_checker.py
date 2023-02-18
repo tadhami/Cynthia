@@ -3,7 +3,7 @@ import numpy as np
 import pokebot_parser
 
 def my_item_checker():
-    with open('items.txt') as fp:
+    with open('text_files/items.txt') as fp:
         all_items = fp.readlines()
     all_items = [x.strip() for x in all_items]
     for i in range(len(all_items)):

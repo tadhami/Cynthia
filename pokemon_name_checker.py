@@ -3,7 +3,7 @@ import numpy as np
 import pokebot_parser
 import pandas as pd 
 
-pokemon_file = pd.read_csv("Pokemon_data.csv")
+pokemon_file = pd.read_csv("csv_files/Pokemon_data.csv")
 pokemon_df = pd.DataFrame(pokemon_file)
 names = pokemon_df["name"]
 
